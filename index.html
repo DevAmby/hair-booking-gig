@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prettifiershair - Premium Hair Braiding Services</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=EB+Garamond:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./booking.css" />
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-inner">
+          <div class="logo">
+            <a href="index.html">
+              <img src="logo.svg" alt="Prettifiershair" class="logo-dark" />
+              <img src="logo.svg" alt="Prettifiershair" class="logo-light" />
+            </a>
+          </div>
+
+          <nav class="main-nav">
+            <ul class="nav-menu">
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <div class="social-icons">
+              <a href="https://instagram.com/prettifiershair" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://facebook.com/prettifiershair" target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </div>
+
+            <div class="booking-button">
+              <a href="appointment.html" class="btn btn-primary">Book Now</a>
+            </div>
+
+            <div class="mobile-menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <div class="close-menu">
+        <i class="fas fa-times"></i>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://instagram.com/prettifiershair" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://facebook.com/prettifiershair" target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-slider swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-image: url('test.jpeg')">
+            <div class="slide-content">
+              <h1>Premium Braiding Services</h1>
+              <p>Expertly crafted braids, twists, and locs in the DFW area</p>
+              <a href="appointment.html" class="btn btn-primary"
+                >Book Your Appointment</a
+              >
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image: url('test.jpeg')">
+            <div class="slide-content">
+              <h1>Discover Your Perfect Style</h1>
+              <p>From cornrows to passion twists, we've got you covered</p>
+              <a href="services.html" class="btn btn-primary"
+                >Explore Services</a
+              >
+            </div>
+          </div>
+          <div class="swiper-slide" style="background-image: url('test.jpeg')">
+            <div class="slide-content">
+              <h1>Your Hair, Your Identity</h1>
+              <p>Express yourself with beautiful, protective styles</p>
+              <a href="gallery.html" class="btn btn-primary">View Gallery</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section section-padding">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="welcome-image">
+              <img src="owner.jpg" alt="Stylist" class="img-fluid" />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="welcome-content">
+              <h2 class="section-title">Welcome to Prettifiershair</h2>
+              <p class="welcome-message">
+                Hello beauties, thanks for booking with Prettifiershair. My name
+                is Titi, and I'm a braider located in the DFW area. My goal is
+                to please and satisfy all my clients hair needs and potentially
+                build a healthy continuous relationship. I look forward to
+                meeting you all.😘
+              </p>
+              <p>
+                Please feel free to text me if you have
+                <strong>IMPORTANT</strong> questions AFTER reading the booking
+                rules and policy.
+              </p>
+
+              <div class="learn-more-container" #booking-policy>
+                <a
+                  href="#booking-policy"
+                  class="btn btn-outline flashing-button"
+                  >READ BOOKING POLICY</a
+                >
+                <div class="scroll-arrow">
+                  <i class="fas fa-chevron-down bounce"></i>
+                </div>
+              </div>
+
+              <style>
+                .learn-more-container {
+                  position: relative;
+                  text-align: center;
+                  margin: 30px 0;
+                }
+
+                .scroll-arrow {
+                  margin-top: 15px;
+                }
+
+                .scroll-arrow i {
+                  color: var(--primary-color);
+                  font-size: 30px;
+                }
+
+                .bounce {
+                  animation: bounce 2s infinite;
+                }
+
+                @keyframes bounce {
+                  0%,
+                  20%,
+                  50%,
+                  80%,
+                  100% {
+                    transform: translateY(0);
+                  }
+
+                  40% {
+                    transform: translateY(-10px);
+                  }
+
+                  60% {
+                    transform: translateY(-5px);
+                  }
+                }
+
+                .flashing-button {
+                  animation: flash 1.5s infinite;
+                }
+
+                @keyframes flash {
+                  0%,
+                  50%,
+                  100% {
+                    background-color: transparent;
+                    color: var(--primary-color);
+                  }
+
+                  25%,
+                  75% {
+                    background-color: var(--primary-color);
+                    color: white;
+                  }
+                }
+              </style>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section section-padding bg-light">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-desc service-desc">
+            Explore our range of premium braiding services
+          </p>
+        </div>
+
+        <div class="">
+          <div class="tab-nav text-center">
+            <button class="tab-btn active" data-target="cornrows">
+              <span>Cornrows</span>
+            </button>
+            <button class="tab-btn" data-target="twists">
+              <span>Twists</span>
+            </button>
+            <button class="tab-btn" data-target="braids">
+              <span>Braids</span>
+            </button>
+          </div>
+
+          <div class="tab-content">
+            <!-- Cornrows Tab -->
+            <div class="tab-pane active" id="cornrows">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="service-card">
+                    <div class="service-image">
+                      <img src="cornrows.jpeg" alt="Straight back cornrows" />
+                    </div>
+                    <div class="service-info">
+                      <h3>Straight back cornrows</h3>
+                      <div class="service-meta">
+                        <span class="duration"
+                          ><i class="far fa-clock"></i> 2 hours</span
+                        >
+                        <span class="price">$150.00</span>
+                      </div>
+                      <p>
+                        Note: this price is for mid back length, anything longer
+                        will be additional
+                      </p>
+                      <a href="appointment.html" class="btn btn-sm btn-primary"
+                        >Book Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="service-card">
+                    <div class="service-image">
+                      <img src="twist-1.jpeg" alt="Feed-in cornrows" />
+                    </div>
+                    <div class="service-info">
+                      <h3>Feed-in cornrows</h3>
+                      <div class="service-meta">
+                        <span class="duration"
+                          ><i class="far fa-clock"></i> 3 hours</span
+                        >
+                        <span class="price">$175.00</span>
+                      </div>
+                      <p>
+                        Beautiful feed-in cornrows. Price varies based on size
+                        and length.
+                      </p>
+                      <a href="appointment.html" class="btn btn-sm btn-primary"
+                        >Book Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Twists Tab -->
+            <div class="tab-pane" id="twists">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="service-card">
+                    <div class="service-image">
+                      <img src="twist-2.jpeg" alt="Knotless kinky locs" />
+                    </div>
+                    <div class="service-info">
+                      <h3>Knotless kinky locs</h3>
+                      <div class="service-meta">
+                        <span class="duration"
+                          ><i class="far fa-clock"></i> 24 hours</span
+                        >
+                        <span class="price">$270.00</span>
+                      </div>
+                      <p>
+                        Beautiful protective style that lasts longer. Includes
+                        multiple sessions.
+                      </p>
+                      <a href="appointment.html" class="btn btn-sm btn-primary"
+                        >Book Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="service-card">
+                    <div class="service-image">
+                      <img src="twist-3.jpeg" alt="Passion Twist" />
+                    </div>
+                    <div class="service-info">
+                      <h3>Passion Twist</h3>
+                      <div class="service-meta">
+                        <span class="duration"
+                          ><i class="far fa-clock"></i> 4.5 hours</span
+                        >
+                        <span class="price">$250.00</span>
+                      </div>
+                      <p>Price varies on length and size. DM for prices.</p>
+                      <a href="appointment.html" class="btn btn-sm btn-primary"
+                        >Book Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Braids Tab -->
+            <div class="tab-pane" id="braids">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="service-card">
+                    <div class="service-image">
+                      <img src="box-1.jpeg" alt="Knotless Braids" />
+                    </div>
+                    <div class="service-info">
+                      <h3>Knotless Braids</h3>
+                      <div class="service-meta">
+                        <span class="duration"
+                          ><i class="far fa-clock"></i> 6 hours</span
+                        >
+                        <span class="price">$200.00</span>
+                      </div>
+                      <p>Seamless braids with no knots at the roots.</p>
+                      <a href="appointment.html" class="btn btn-sm btn-primary"
+                        >Book Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="service-card">
+                    <div class="service-image">
+                      <img src="box-2.jpeg" alt="Box Braids" />
+                    </div>
+                    <div class="service-info">
+                      <h3>Medium Box Braids</h3>
+                      <div class="service-meta">
+                        <span class="duration"
+                          ><i class="far fa-clock"></i> 5 hours</span
+                        >
+                        <span class="price">$180.00</span>
+                      </div>
+                      <p>
+                        Classic box braids, price varies based on size and
+                        length.
+                      </p>
+                      <a href="appointment.html" class="btn btn-sm btn-primary"
+                        >Book Now</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="services.html" class="btn btn-outline-primary"
+            >View All Services</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Add-Ons Section -->
+    <section class="addons-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Additional Services</h2>
+          <p class="section-desc">Enhance your style with these add-ons</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="addons-grid">
+              <div class="addon-card">
+                <div class="addon-icon">
+                  <i class="fas fa-cut"></i>
+                </div>
+                <h4>Tuck-ins</h4>
+                <p>Clean finish with tucked ends</p>
+                <span class="addon-price">$30</span>
+              </div>
+
+              <div class="addon-card">
+                <div class="addon-icon">
+                  <i class="fas fa-magic"></i>
+                </div>
+                <h4>Bohemian curls</h4>
+                <p>Beautiful curled ends</p>
+                <span class="addon-price">$50</span>
+              </div>
+
+              <div class="addon-card">
+                <div class="addon-icon">
+                  <i class="fas fa-palette"></i>
+                </div>
+                <h4>Mixing 2 colors</h4>
+                <p>Two color combination</p>
+                <span class="addon-price">$30</span>
+              </div>
+
+              <div class="addon-card">
+                <div class="addon-icon">
+                  <i class="fas fa-gem"></i>
+                </div>
+                <h4>Accessories</h4>
+                <p>Add beads and accessories</p>
+                <span class="addon-price">From $10</span>
+              </div>
+
+              <div class="addon-card">
+                <div class="addon-icon">
+                  <i class="fas fa-wave-square"></i>
+                </div>
+                <h4>Crinkle ends</h4>
+                <p>Special textured ends</p>
+                <span class="addon-price">$30</span>
+              </div>
+
+              <div class="addon-card">
+                <div class="addon-icon">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <h4>Extra Thick/Long</h4>
+                <p>For extra thick or long hair</p>
+                <span class="addon-price">From $50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Our Latest Work</h2>
+          <p class="section-desc">
+            Browse through our portfolio of beautiful styles
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/images/gallery/gallery1.jpg" alt="Braiding Work" />
+            <div class="gallery-overlay">
+              <h5>Knotless Braids</h5>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="assets/images/gallery/gallery2.jpg" alt="Braiding Work" />
+            <div class="gallery-overlay">
+              <h5>Cornrows</h5>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="assets/images/gallery/gallery3.jpg" alt="Braiding Work" />
+            <div class="gallery-overlay">
+              <h5>Passion Twist</h5>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="assets/images/gallery/gallery4.jpg" alt="Braiding Work" />
+            <div class="gallery-overlay">
+              <h5>Box Braids</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="gallery.html" class="btn btn-outline-primary"
+            >View Full Gallery</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Policy Section -->
+    <section class="policy-section section-padding" id="booking-policy">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Booking Policy</h2>
+          <p class="section-desc text-danger fw-bold">
+            PLEASE READ CAREFULLY‼️‼️
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="policy-card">
+              <div class="policy-item">
+                <h4>BOOKING TIME FRAME</h4>
+                <p>
+                  Ensure to book me in the morning by 8 or 8:30. No booking 9am,
+                  10 or 11. AFTERNOON BOOKING SHOULD START FROM 12.
+                  <strong
+                    >NOTE: I ONLY DO SMALL, LONG BRAIDS IN THE MORNING.</strong
+                  >
+                  I don't do small long braids from 1pm. But you can book me for
+                  medium any length, smedium, small mid back, boho bob length or
+                  any other fast style in the afternoon.
+                </p>
+              </div>
+
+              <div class="policy-item">
+                <h4>HAIR PURCHASE</h4>
+                <p>
+                  I use Xpression product, and I have human hair for purchase at
+                  $90 per bundle. Note: if u want more fuller curls all over
+                  your braids is extra $50. Xpression prices for mid back is
+                  $30, waist length is 40 and for butt length is 45$. If u need
+                  any hair purchase kindly leave color u want in your booking
+                  note thank u 😊
+                </p>
+              </div>
+
+              <div class="policy-item">
+                <h4>PAYMENT & DEPOSIT</h4>
+                <ul>
+                  <li>
+                    A <strong>non refundable deposit</strong> of $40 is required
+                    to book an appointment. The balance is to be paid in
+                    <strong>CASH ONLY</strong>.
+                  </li>
+                  <li><strong>NO DEPOSIT = NO APPOINTMENT.‼️</strong></li>
+                  <li>
+                    <strong
+                      >CANCELLATION = YOUR CARD BEING CHARGED 50% OF YOUR
+                      APPOINTMENT PRICE</strong
+                    >
+                  </li>
+                  <li>
+                    All cancellations done in less than 24 hours will result in
+                    the deposited forfeited.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="policy-item">
+                <h4>OTHER IMPORTANT INFORMATION</h4>
+                <ul>
+                  <li>
+                    Hair MUST be freshly washed, blow dried properly and free
+                    from products before the appointment.
+                  </li>
+                  <li>
+                    <strong
+                      >Extra charges for mixing 2-3 colors, tucking braids,
+                      goddess ends, needs blow drying, EXTRA EXTRA THICK, FULL
+                      AND LONG HAIR.</strong
+                    >
+                  </li>
+                  <li>
+                    If your hair is short, PLEASE send a picture to me. SHORT
+                    HAIR IS EXTRA CHARGES FROM 60$ depends on how short it is.
+                  </li>
+                  <li>Please arrive at your appointment time❗️❗️❗️</li>
+                  <li>
+                    $20 late fee after 20 mins, anytime afterwards please call
+                    or text to negotiate.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Follow Us on Social Media</h2>
+          <p class="section-desc">
+            Stay updated with our latest styles and promotions
+          </p>
+        </div>
+
+        <div class="social-container text-center">
+          <div class="social-icons-large">
+            <a
+              href="https://www.tiktok.com/@prettifiershair_clients"
+              target="_blank"
+              class="social-icon-lg"
+            >
+              <i class="fab fa-tiktok"></i>
+              <span>@prettifiershair_clients</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/prettifiershair"
+              target="_blank"
+              class="social-icon-lg"
+            >
+              <i class="fab fa-instagram"></i>
+              <span>@prettifiershair</span>
+            </a>
+
+            <a
+              href="https://www.facebook.com/prettifiershair"
+              target="_blank"
+              class="social-icon-lg"
+            >
+              <i class="fab fa-facebook-f"></i>
+              <span>@prettifiershair</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content text-center">
+          <h2>Ready to Transform Your Look?</h2>
+          <p>
+            Book your appointment today and experience the best braiding service
+            in the DFW area.
+          </p>
+          <a href="appointment.html" class="btn btn-primary"
+            >Book Your Appointment</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-widget about-widget">
+                <div class="footer-logo">
+                  <img src="logo.svg" alt="Prettifiershair" />
+                </div>
+                <p>
+                  Premium hair braiding services in the DFW area. Specializing
+                  in cornrows, twists, braids, and protective styles.
+                </p>
+                <div class="social-icons">
+                  <a
+                    href="https://instagram.com/prettifiershair"
+                    target="_blank"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a href="https://facebook.com/prettifiershair" target="_blank"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    href="https://www.tiktok.com/@prettifiershair_clients"
+                    target="_blank"
+                    ><i class="fab fa-tiktok"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6"></div>
+
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-widget contact-widget">
+                <h4 class="widget-title">Contact Information</h4>
+                <ul class="contact-info">
+                  <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>DFW Area, Texas</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Contact by booking appointment</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-envelope"></i>
+                    <span>info@prettifiershair.com</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Sat: 8:00 AM - 8:00 PM</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="copyright text-center">
+                &copy; 2025 Prettifiershair. All rights reserved.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="./booking.js"></script>
+  </body>
+</html>

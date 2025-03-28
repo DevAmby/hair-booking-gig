@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <!-- Background -->
+  <rect width="500" height="300" fill="transparent"/>
+  
+  <!-- Logo Design -->
+  <g>
+    <!-- Decorative Elements -->
+    <path d="M125,110 C180,70 320,70 375,110" stroke="#b76e79" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M125,190 C180,230 320,230 375,190" stroke="#b76e79" stroke-width="6" fill="none" stroke-linecap="round"/>
+    
+    <!-- Main name -->
+    <text x="250" y="160" font-family="'EB Garamond', serif" font-size="72" text-anchor="middle" fill="#333333" font-weight="500">AMAKA</text>
+    
+    
+    <!-- Tagline -->
+    <text x="250" y="190" font-family="'Jost', sans-serif" font-size="18" text-anchor="middle" fill="#b76e79">PREMIUM HAIR BRAIDING</text>
+    
+  </g>
+</svg>

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Prettifiershair</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./booking.css">
+    
+    <!-- Page-specific CSS -->
+    <style>
+        /* Booking Form Styles (copied from booking-form-css artifact) */
+        .booking-form-section {
+            background-color: var(--secondary-color);
+            padding: 80px 0;
+        }
+
+        .booking-form-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            position: relative;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .form-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .form-section h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control, .form-select {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 15px;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(217, 134, 164, 0.25);
+        }
+
+        .form-control.is-invalid, .form-select.is-invalid {
+            border-color: #dc3545;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-check-label {
+            font-weight: normal;
+        }
+
+        .form-check-input {
+            margin-top: 0.3rem;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .form-check-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(217, 134, 164, 0.25);
+        }
+
+        .policy-agreement {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .deposit-notice {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .price-estimate-container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-estimate-label {
+            font-weight: 500;
+        }
+
+        .price-estimate-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* Price Display Box */
+        .price-display {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .price-display h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .price-display .price-amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price-display .price-note {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* Add-on styling */
+        .addon-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        @media (max-width: 991px) {
+            .addon-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .booking-form-card {
+                padding: 30px 20px;
+            }
+            
+            .addon-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-section h4 {
+                font-size: 20px;
+            }
+        }
+
+        /* Custom Checkbox Styling */
+        .custom-addon-checkbox {
+            display: block;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .custom-addon-checkbox:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(217, 134, 164, 0.05);
+        }
+
+        .form-check-input:checked + .custom-addon-checkbox {
+            border-color: var(--primary-color);
+            background-color: rgba(217, 134, 164, 0.1);
+        }
+
+        .addon-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .addon-price {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Date Picker Styling */
+        input[type="date"] {
+            appearance: none;
+            -webkit-appearance: none;
+            color: var(--text-color);
+            font-family: var(--body-font);
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #fff;
+            position: relative;
+        }
+
+        input[type="date"]:focus {
+            color: var(--primary-color);
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Loading button state */
+        .btn-loading {
+            position: relative;
+            color: transparent !important;
+        }
+
+        .btn-loading:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s infinite linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="Prettifiershair" class="logo-dark">
+                        <img src="assets/images/logo-light.png" alt="Prettifiershair" class="logo-light">
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="appointment.html" class="active">Book Appointment</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="social-icons">
+                        <a href="https://instagram.com/prettifiershair" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/prettifiershair" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                    
+                    <div class="booking-button">
+                        <a href="appointment.html" class="btn btn-primary">Book Now</a>
+                    </div>
+                    
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="appointment.html" class="active">Book Appointment</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="https://instagram.com/prettifiershair" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/prettifiershair" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <section class="page-title-section" style="background-image: url('assets/images/page-title-bg.jpg');">
+        <div class="container">
+            <h1 class="page-title">Book Your Appointment</h1>
+        </div>
+    </section>
+
+    <!-- Booking Form Section with Color Selection -->
+    <section class="booking-form-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Book Your Appointment</h2>
+                <p class="section-desc">Schedule your premium braiding service with Prettifiershair</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="booking-form-card">
+                        <form id="booking-form" action="process-booking.php" method="POST">
+                            <!-- Personal Information -->
+                            <div class="form-section">
+                                <h4>Personal Information</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Full Name*</label>
+                                            <input type="text" id="name" name="name" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number*</label>
+                                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email Address*</label>
+                                            <input type="email" id="email" name="email" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="instagram">Instagram Handle (optional)</label>
+                                            <input type="text" id="instagram" name="instagram" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Service Selection -->
+                            <div class="form-section">
+                                <h4>Service Selection</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="service-type">Service Type*</label>
+                                            <select id="service-type" name="service_type" class="form-select" required>
+                                                <option value="">Select Service</option>
+                                                <optgroup label="Cornrows">
+                                                    <option value="straight-back-cornrows">Straight back cornrows ($150)</option>
+                                                    <option value="feed-in-cornrows">Feed-in cornrows ($175)</option>
+                                                </optgroup>
+                                                <optgroup label="Twists">
+                                                    <option value="knotless-kinky-locs">Knotless kinky locs ($270)</option>
+                                                    <option value="passion-twist">Passion Twist ($250)</option>
+                                                </optgroup>
+                                                <optgroup label="Braids">
+                                                    <option value="knotless-braids">Knotless Braids ($200)</option>
+                                                    <option value="box-braids">Medium Box Braids ($180)</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="hair-length">Hair Length*</label>
+                                            <select id="hair-length" name="hair_length" class="form-select" required>
+                                                <option value="">Select Length</option>
+                                                <option value="bob">Bob Length</option>
+                                                <option value="shoulder">Shoulder Length</option>
+                                                <option value="mid-back">Mid Back (standard)</option>
+                                                <option value="waist">Waist Length (+$40)</option>
+                                                <option value="butt">Butt Length (+$60)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hair Attachment Options -->
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <h5>Hair Attachment Options</h5>
+                                        <p class="text-muted mb-3">Select if you need hair attachments for your service</p>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="hair-purchase">Need Hair Purchase?</label>
+                                            <select id="hair-purchase" name="hair_purchase" class="form-select">
+                                                <option value="no">No, I'll bring my own hair</option>
+                                                <option value="xpression">Yes, Xpression Hair</option>
+                                                <option value="human-hair">Yes, Human Hair Bundle ($90)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 hair-color-section" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="hair-color">Hair Color*</label>
+                                            <select id="hair-color" name="hair_color" class="form-select">
+                                                <option value="">Select Color</option>
+                                                <option value="1">Color 1 (Jet Black)</option>
+                                                <option value="1B">Color 1B (Natural Black)</option>
+                                                <option value="2">Color 2 (Darkest Brown)</option>
+                                                <option value="4">Color 4 (Dark Brown)</option>
+                                                <option value="6">Color 6 (Chestnut Brown)</option>
+                                                <option value="8">Color 8 (Light Brown)</option>
+                                                <option value="10">Color 10 (Golden Brown)</option>
+                                                <option value="27">Color 27 (Honey Blonde)</option>
+                                                <option value="30">Color 30 (Auburn)</option>
+                                                <option value="33">Color 33 (Dark Auburn)</option>
+                                                <option value="99J">Color 99J (Burgundy)</option>
+                                                <option value="bug">Color Bug (Burgundy)</option>
+                                                <option value="350">Color 350 (Copper Red)</option>
+                                                <option value="613">Color 613 (Blonde)</option>
+                                                <option value="mixed">Mixed Colors (specify in notes)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mt-3 secondary-color-section" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="secondary-color">Secondary Color (for mixing)</label>
+                                            <select id="secondary-color" name="secondary_color" class="form-select">
+                                                <option value="">Select Secondary Color</option>
+                                                <option value="1">Color 1 (Jet Black)</option>
+                                                <option value="1B">Color 1B (Natural Black)</option>
+                                                <option value="2">Color 2 (Darkest Brown)</option>
+                                                <option value="4">Color 4 (Dark Brown)</option>
+                                                <option value="6">Color 6 (Chestnut Brown)</option>
+                                                <option value="8">Color 8 (Light Brown)</option>
+                                                <option value="10">Color 10 (Golden Brown)</option>
+                                                <option value="27">Color 27 (Honey Blonde)</option>
+                                                <option value="30">Color 30 (Auburn)</option>
+                                                <option value="33">Color 33 (Dark Auburn)</option>
+                                                <option value="99J">Color 99J (Burgundy)</option>
+                                                <option value="bug">Color Bug (Burgundy)</option>
+                                                <option value="350">Color 350 (Copper Red)</option>
+                                                <option value="613">Color 613 (Blonde)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Add-Ons -->
+                            <div class="form-section">
+                                <h4>Add-On Services</h4>
+                                
+                                <!-- Price estimator display -->
+                                <div class="price-display mb-4">
+                                    <h5>Estimated Total</h5>
+                                    <div class="price-amount" id="estimated-price">$0.00</div>
+                                    <p class="price-note">Final price may vary based on consultation</p>
+                                </div>
+                                
+                                <div class="addon-options">
+                                    <div class="form-check custom-addon-check">
+                                        <input class="form-check-input visually-hidden" type="checkbox" id="tuck-ins" name="addons[]" value="tuck-ins">
+                                        <label class="custom-addon-checkbox" for="tuck-ins">
+                                            <div class="addon-name">Tuck-ins</div>
+                                            <div class="addon-price">+$30</div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check custom-addon-check">
+                                        <input class="form-check-input visually-hidden" type="checkbox" id="bohemian-curls" name="addons[]" value="bohemian-curls">
+                                        <label class="custom-addon-checkbox" for="bohemian-curls">
+                                            <div class="addon-name">Bohemian curls</div>
+                                            <div class="addon-price">+$50</div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check custom-addon-check">
+                                        <input class="form-check-input visually-hidden" type="checkbox" id="color-mix" name="addons[]" value="color-mix">
+                                        <label class="custom-addon-checkbox" for="color-mix">
+                                            <div class="addon-name">Mixing 2 colors</div>
+                                            <div class="addon-price">+$30</div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check custom-addon-check">
+                                        <input class="form-check-input visually-hidden" type="checkbox" id="accessories" name="addons[]" value="accessories">
+                                        <label class="custom-addon-checkbox" for="accessories">
+                                            <div class="addon-name">Accessories</div>
+                                            <div class="addon-price">+$10</div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check custom-addon-check">
+                                        <input class="form-check-input visually-hidden" type="checkbox" id="crinkle-ends" name="addons[]" value="crinkle-ends">
+                                        <label class="custom-addon-checkbox" for="crinkle-ends">
+                                            <div class="addon-name">Crinkle ends</div>
+                                            <div class="addon-price">+$30</div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check custom-addon-check">
+                                        <input class="form-check-input visually-hidden" type="checkbox" id="extra-thick" name="addons[]" value="extra-thick">
+                                        <label class="custom-addon-checkbox" for="extra-thick">
+                                            <div class="addon-name">Extra Thick/Long</div>
+                                            <div class="addon-price">+$50</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Appointment Details -->
+                            <div class="form-section">
+                                <h4>Appointment Details</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="appointment-date">Preferred Date*</label>
+                                            <input type="date" id="appointment-date" name="appointment_date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="appointment-time">Preferred Time*</label>
+                                            <select id="appointment-time" name="appointment_time" class="form-select" required>
+                                                <option value="">Select Time</option>
+                                                <optgroup label="Morning (Small, Long Braids Only)">
+                                                    <option value="08:00">8:00 AM</option>
+                                                    <option value="08:30">8:30 AM</option>
+                                                </optgroup>
+                                                <optgroup label="Afternoon (All Services)">
+                                                    <option value="12:00">12:00 PM</option>
+                                                    <option value="12:30">12:30 PM</option>
+                                                    <option value="13:00">1:00 PM</option>
+                                                    <option value="13:30">1:30 PM</option>
+                                                    <option value="14:00">2:00 PM</option>
+                                                    <option value="14:30">2:30 PM</option>
+                                                    <option value="15:00">3:00 PM</option>
+                                                    <option value="15:30">3:30 PM</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group mt-3">
+                                    <label for="special-requests">Special Requests or Notes</label>
+                                    <textarea id="special-requests" name="special_requests" class="form-control" rows="4" placeholder="Please mention any specific style details, hair condition information, or other requests here."></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Policy Agreement -->
+                            <div class="form-section">
+                                <div class="policy-agreement">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="policy-agreement" name="policy_agreement" required>
+                                        <label class="form-check-label" for="policy-agreement">
+                                            I have read and agree to the <a href="policy.html" target="_blank">Booking Policy</a> including non-refundable deposit, cancellation policy, and preparation requirements.*
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-warning mt-4">
+                                    <h5><i class="fas fa-exclamation-triangle"></i> Important Reminders</h5>
+                                    <ul class="mb-0">
+                                        <li>A <strong>non-refundable deposit</strong> of $40 is required to secure your booking.</li>
+                                        <li>Cancellations with less than 24 hours' notice will result in your deposit being forfeited.</li>
+                                        <li>Hair must be freshly washed, blow dried and free from products before your appointment.</li>
+                                        <li>Please arrive on time. A $20 late fee will apply after 20 minutes.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="form-section text-center">
+                                <p class="deposit-notice mb-3"><strong>Note:</strong> A non-refundable deposit of $40 will be required to confirm your booking.</p>
+                                <button type="submit" class="btn btn-primary btn-lg">Proceed to Payment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Find answers to common questions about our booking process</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="bookingFAQ">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What is your deposit policy?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#bookingFAQ">
+                                <div class="accordion-body">
+                                    A non-refundable deposit of $40 is required to secure your booking. This deposit will be applied to your final service cost. All cancellations done with less than 24 hours' notice will result in the deposit being forfeited.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How should I prepare my hair before the appointment?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#bookingFAQ">
+                                <div class="accordion-body">
+                                    Your hair MUST be freshly washed, blow dried properly, and free from products before the appointment. If your hair needs blow drying, there will be an additional charge. Please ensure your hair is detangled and ready for styling to make the most of our time together.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Do you provide the hair for braiding?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#bookingFAQ">
+                                <div class="accordion-body">
+                                    Yes, I use Xpression products for synthetic hair, and I also have human hair bundles available for purchase at $90 per bundle. Xpression hair prices vary by length: mid-back is $30, waist length is $40, and butt length is $45. You can specify your color preference during booking.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What forms of payment do you accept?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#bookingFAQ">
+                                <div class="accordion-body">
+                                    The deposit can be paid online through the booking system. The remaining balance must be paid in <strong>CASH ONLY</strong> at the time of your appointment.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    What if I'm running late to my appointment?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#bookingFAQ">
+                                <div class="accordion-body">
+                                    Please arrive at your scheduled appointment time. There is a $20 late fee after 20 minutes. If you're going to be late, please call or text as soon as possible to discuss options.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget about-widget">
+                            <div class="footer-logo">
+                                <img src="assets/images/logo-light.png" alt="Prettifiershair">
+                            </div>
+                            <p>Premium hair braiding services in the DFW area. Specializing in cornrows, twists, braids, and protective styles.</p>
+                            <div class="social-icons">
+                                <a href="https://instagram.com/prettifiershair" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="https://facebook.com/prettifiershair" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.tiktok.com/@prettifiershair_clients" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget links-widget">
+                            <h4 class="widget-title">Quick Links</h4>
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="appointment.html">Book Appointment</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li><a href="about.html">About Me</a></li>
+                                <li><a href="policy.html">Booking Policy</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget contact-widget">
+                            <h4 class="widget-title">Contact Information</h4>
+                            <ul class="contact-info">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>DFW Area, Texas</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span>Contact by booking appointment</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@prettifiershair.com</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span>Mon-Sat: 8:00 AM - 8:00 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="copyright">
+                            &copy; 2025 Prettifiershair. All rights reserved.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links text-md-end">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS -->
+    <script src="./booking.js"></script>
+    
+    <!-- Booking Form JS -->
+    <script>
+        // Booking Form Interactive Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get form elements
+            const hairPurchaseSelect = document.getElementById('hair-purchase');
+            const hairColorSection = document.querySelector('.hair-color-section');
+            const hairColorSelect = document.getElementById('hair-color');
+            const secondaryColorSection = document.querySelector('.secondary-color-section');
+            const colorMixCheckbox = document.getElementById('color-mix');
+            const serviceTypeSelect = document.getElementById('service-type');
+            const appointmentTimeSelect = document.getElementById('appointment-time');
+            const form = document.getElementById('booking-form');
+            
+            // When hair purchase selection changes
+            if (hairPurchaseSelect) {
+                hairPurchaseSelect.addEventListener('change', function() {
+                    // If user selects to purchase hair, show the hair color section
+                    if (this.value === 'xpression' || this.value === 'human-hair') {
+                        hairColorSection.style.display = 'block';
+                        hairColorSelect.setAttribute('required', 'required');
+                    } else {
+                        hairColorSection.style.display = 'none';
+                        hairColorSelect.removeAttribute('required');
+                        secondaryColorSection.style.display = 'none';
+                    }
+                    
+                    // Update price whenever selection changes
+                    calculateEstimatedPrice();
+                });
+            }
+            
+            // When hair color changes
+            if (hairColorSelect) {
+                hairColorSelect.addEventListener('change', function() {
+                    // If mixed colors is selected, show secondary color section
+                    if (this.value === 'mixed') {
+                        secondaryColorSection.style.display = 'block';
+                        // Auto-check the color mix add-on
+                        if (colorMixCheckbox) {
+                            colorMixCheckbox.checked = true;
+                        }
+                    } else {
+                        // Check if color mix add-on is checked, if so, show secondary color section
+                        if (colorMixCheckbox && colorMixCheckbox.checked) {
+                            secondaryColorSection.style.display = 'block';
+                        } else {
+                            secondaryColorSection.style.display = 'none';
+                        }
+                    }
+                    
+                    // Update price
+                    calculateEstimatedPrice();
+                });
+            }
+            
+            // When color mix checkbox changes
+            if (colorMixCheckbox) {
+                colorMixCheckbox.addEventListener('change', function() {
+                    if (this.checked && hairColorSection.style.display !== 'none') {
+                        secondaryColorSection.style.display = 'block';
+                    } else {
+                        secondaryColorSection.style.display = 'none';
+                    }
+                    
+                    // Update price
+                    calculateEstimatedPrice();
+                });
+            }
+            
+            // Filter time slots based on service selection
+            if (serviceTypeSelect && appointmentTimeSelect) {
+                serviceTypeSelect.addEventListener('change', function() {
+                    const selectedService = this.value;
+                    
+                    // Reset options
+                    clearTimeOptions();
+                    
+                    // Add default option
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.text = 'Select Time';
+                    defaultOption.selected = true;
+                    appointmentTimeSelect.appendChild(defaultOption);
+                    
+                    // If small, long braids (knotless-braids, box-braids) are selected, 
+                    // only morning slots should be available
+                    if (selectedService === 'knotless-braids' || selectedService === 'box-braids') {
+                        // Add morning time slots
+                        const morningGroup = document.createElement('optgroup');
+                        morningGroup.label = 'Morning Slots (Small, Long Braids)';
+                        
+                        addTimeOption(morningGroup, '08:00', '8:00 AM');
+                        addTimeOption(morningGroup, '08:30', '8:30 AM');
+                        
+                        appointmentTimeSelect.appendChild(morningGroup);
+                    } else {
+                        // Add afternoon time slots
+                        const afternoonGroup = document.createElement('optgroup');
+                        afternoonGroup.label = 'Afternoon Slots';
+                        
+                        addTimeOption(afternoonGroup, '12:00', '12:00 PM');
+                        addTimeOption(afternoonGroup, '12:30', '12:30 PM');
+                        addTimeOption(afternoonGroup, '13:00', '1:00 PM');
+                        addTimeOption(afternoonGroup, '13:30', '1:30 PM');
+                        addTimeOption(afternoonGroup, '14:00', '2:00 PM');
+                        addTimeOption(afternoonGroup, '14:30', '2:30 PM');
+                        addTimeOption(afternoonGroup, '15:00', '3:00 PM');
+                        addTimeOption(afternoonGroup, '15:30', '3:30 PM');
+                        
+                        appointmentTimeSelect.appendChild(afternoonGroup);
+                    }
+                    
+                    // Update price
+                    calculateEstimatedPrice();
+                });
+            }
+            
+            // Helper function to clear time options
+            function clearTimeOptions() {
+                while (appointmentTimeSelect.options.length > 0) {
+                    appointmentTimeSelect.remove(0);
+                }
+            }
+            
+            // Helper function to add time option
+            function addTimeOption(group, value, text) {
+                const option = document.createElement('option');
+                option.value = value;
+                option.text = text;
+                group.appendChild(option);
+            }
+            
+            // Dynamic price calculation
+            function calculateEstimatedPrice() {
+                let basePrice = 0;
+                let addOns = 0;
+                
+                // Get base price from service selection
+                const selectedService = serviceTypeSelect.value;
+                switch (selectedService) {
+                    case 'straight-back-cornrows':
+                        basePrice = 150;
+                        break;
+                    case 'feed-in-cornrows':
+                        basePrice = 175;
+                        break;
+                    case 'knotless-kinky-locs':
+                        basePrice = 270;
+                        break;
+                    case 'passion-twist':
+                        basePrice = 250;
+                        break;
+                    case 'knotless-braids':
+                        basePrice = 200;
+                        break;
+                    case 'box-braids':
+                        basePrice = 180;
+                        break;
+                    default:
+                        basePrice = 0;
+                }
+                
+                // Calculate add-ons
+                const tuckIns = document.getElementById('tuck-ins');
+                if (tuckIns && tuckIns.checked) addOns += 30;
+                
+                const bohemianCurls = document.getElementById('bohemian-curls');
+                if (bohemianCurls && bohemianCurls.checked) addOns += 50;
+                
+                const colorMix = document.getElementById('color-mix');
+                if (colorMix && colorMix.checked) addOns += 30;
+                
+                const accessories = document.getElementById('accessories');
+                if (accessories && accessories.checked) addOns += 10;
+                
+                const crinkleEnds = document.getElementById('crinkle-ends');
+                if (crinkleEnds && crinkleEnds.checked) addOns += 30;
+                
+                const extraThick = document.getElementById('extra-thick');
+                if (extraThick && extraThick.checked) addOns += 50;
+                
+                // Hair length add-ons
+                const hairLength = document.getElementById('hair-length').value;
+                if (hairLength === 'waist') addOns += 40;
+                if (hairLength === 'butt') addOns += 60;
+                
+                // Hair purchase add-ons
+                const hairPurchase = document.getElementById('hair-purchase').value;
+                let hairCost = 0;
+                
+                if (hairPurchase === 'xpression') {
+                    if (hairLength === 'mid-back') hairCost = 30;
+                    else if (hairLength === 'waist') hairCost = 40;
+                    else if (hairLength === 'butt') hairCost = 45;
+                    else hairCost = 30; // Default for shorter lengths
+                } else if (hairPurchase === 'human-hair') {
+                    hairCost = 90;
+                }
+                
+                // Add hair cost to addOns
+                addOns += hairCost;
+                
+                // Display calculated price
+                const totalPrice = basePrice + addOns;
+                
+                // If price display element exists, update it
+                const priceDisplay = document.getElementById('estimated-price');
+                if (priceDisplay) {
+                    priceDisplay.textContent = '
+                                 + totalPrice.toFixed(2);
+                }
+                
+                return totalPrice;
+            }
+            
+            // Add event listeners to all form elements that affect price
+            const formInputs = document.querySelectorAll('input, select');
+            formInputs.forEach(element => {
+                element.addEventListener('change', calculateEstimatedPrice);
+            });
+            
+            // Form validation before submission
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    // Get required fields
+                    const requiredFields = form.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    // Check each required field
+                    requiredFields.forEach(field => {
+                        if (!field.value) {
+                            isValid = false;
+                            field.classList.add('is-invalid');
+                        } else {
+                            field.classList.remove('is-invalid');
+                        }
+                    });
+                    
+                    // Check policy agreement
+                    const policyAgreement = document.getElementById('policy-agreement');
+                    if (!policyAgreement.checked) {
+                        isValid = false;
+                        policyAgreement.classList.add('is-invalid');
+                    } else {
+                        policyAgreement.classList.remove('is-invalid');
+                    }
+                    
+                    // Prevent form submission if validation fails
+                    if (!isValid) {
+                        event.preventDefault();
+                        
+                        // Scroll to the first invalid field
+                        const firstInvalid = form.querySelector('.is-invalid');
+                        if (firstInvalid) {
+                            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        
+                        // Show validation message
+                        const validationMessage = document.createElement('div');
+                        validationMessage.className = 'alert alert-danger mt-3';
+                        validationMessage.textContent = 'Please fill in all required fields and accept the booking policy.';
+                        
+                        // Remove any existing validation messages
+                        const existingMessages = form.querySelectorAll('.alert-danger');
+                        existingMessages.forEach(msg => msg.remove());
+                        
+                        // Add the validation message to the form
+                        form.prepend(validationMessage);
+                    }
+                });
+            }
+            
+            // Initialize price calculation on page load
+            calculateEstimatedPrice();
+        });
+    </script>
+</body>
+</html>
+                                
